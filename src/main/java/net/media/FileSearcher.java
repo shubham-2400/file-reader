@@ -32,17 +32,26 @@ public class FileSearcher {
                 System.out.print("Query id alloted: "+queryId+"\n\n");
 
                 Query query = new Query(keywords, queryId, output, completionStatus);
+                completionStatus.put(queryId, -1);
                 Thread task = new Thread(query);
                 task.start();
             }
             else if(command==2) {
-                int queryId = scanner.nextInt();
-                if(completionStatus.get(queryId) == 0) {
-                    System.out.println("the query has not yet completed.");
-                }
-                List<List<String>> queryOutput =  output.get(queryId);
-                for(List<String> token: queryOutput){
-                    System.out.println("{file name: " + token.get(0) + ", line number: " + token.get(1) + ", keyword: " + token.get(2) + "}");
+                try{
+                    int queryId = scanner.nextInt();
+    
+                    if(completionStatus.get(queryId) == -1) {
+                        System.out.println("the query has not yet completed.");
+                        continue;
+                    }
+                    List<List<String>> queryOutput =  output.get(queryId);
+                    for(List<String> token: queryOutput){
+                        System.out.println("{file name: " + token.get(0) + ", line number: " + token.get(1) + ", keyword: " + token.get(2) + "}");
+                    }
+                    System.err.println("\n");
+
+                }catch(Exception e){
+                    System.err.println("please enter valid input");
                 }
             }
             else {

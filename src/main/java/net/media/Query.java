@@ -20,6 +20,13 @@ class Query implements Runnable{
     synchronized public void run(){
         File input = new File("/Users/shubham.gho/file-searcher/src/main/java/net/media/input");
         File[] files = input.listFiles();
+        try{
+            Thread.sleep(10000);
+        }catch(Exception e){
+            
+        }
+        
+        
         for(File file: files){
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
