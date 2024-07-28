@@ -1,0 +1,32 @@
+1. new search term
+2. get query result
+3. exit
+
+inputs 
+
+1. keywords list
+2. query id
+3. exit
+
+outputs 
+
+1. query id
+2. [keyword, fileid, line no]
+3. result of all query 
+
+
+
+---solutions
+
+scan for each query 
+
+1. on getting query of type 1 spawn a new thread with arguments as keywords.
+2. get the output calculated by the specific query till now and print them
+3. quit
+
+
+classes:
+
+1. Query class
+    |- 1. 
+2. 
